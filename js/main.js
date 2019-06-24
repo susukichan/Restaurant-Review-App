@@ -161,33 +161,41 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
   addMarkersToMap();
 };
 
-/**
- * Create restaurant HTML.
- */
 createRestaurantHTML = restaurant => {
   const li = document.createElement("li");
 
-  const image = document.createElement("img");
-  image.className = "restaurant-img";
-  image.src = DBHelper.imageUrlForRestaurant(restaurant);
-  li.append(image);
+  {
+    const image = document.createElement("img");
+    image.setAttribute("class", "restaurant-img");
+    image.setAttribute("src", DBHelper.imageUrlForRestaurant(restaurant));
+    image.setAttribute("alt", `Image of ${restaurant.name}`);
+    li.append(image);
+  }
 
-  const name = document.createElement("h1");
-  name.innerHTML = restaurant.name;
-  li.append(name);
+  {
+    const name = document.createElement("h1");
+    name.innerText = restaurant.name;
+    li.append(name);
+  }
 
-  const neighborhood = document.createElement("p");
-  neighborhood.innerHTML = restaurant.neighborhood;
-  li.append(neighborhood);
+  {
+    const neighborhood = document.createElement("p");
+    neighborhood.innerText = restaurant.neighborhood;
+    li.append(neighborhood);
+  }
 
-  const address = document.createElement("p");
-  address.innerHTML = restaurant.address;
-  li.append(address);
+  {
+    const address = document.createElement("p");
+    address.innerText = restaurant.address;
+    li.append(address);
+  }
 
-  const more = document.createElement("a");
-  more.innerHTML = "View Details";
-  more.href = DBHelper.urlForRestaurant(restaurant);
-  li.append(more);
+  {
+    const more = document.createElement("a");
+    more.innerText = "View Details";
+    more.href = DBHelper.urlForRestaurant(restaurant);
+    li.append(more);
+  }
 
   return li;
 };
