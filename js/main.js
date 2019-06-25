@@ -173,7 +173,7 @@ createRestaurantHTML = restaurant => {
   }
 
   {
-    const name = document.createElement("h1");
+    const name = document.createElement("h2");
     name.innerText = restaurant.name;
     li.append(name);
   }
